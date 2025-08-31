@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Domotique</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Inclure Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Tableau de Bord Domotique</h1>
+            <div class="theme-toggle">
+                <button id="themeToggle">Changer de thème</button>
+            </div>
+        </div>
+        <div class="current-time">
+            <h2>Date et Heure Actuelles</h2>
+            <p id="current-date">--/--/----</p>
+            <p id="current-time">--:--:--</p>
+        </div>
+        <div class="widgets-grid">
+            <div class="grid-cell" data-cell="1">
+                <div class="widget" id="temperatureWidget" draggable="true">
+                    <h2>Température</h2>
+                    <p id="temperature">-- °C</p>
+                </div>
+            </div>
+            <div class="grid-cell" data-cell="2">
+                <div class="widget" id="humidityWidget" draggable="true">
+                    <h2>Humidité</h2>
+                    <p id="humidite">-- %</p>
+                </div>
+            </div>
+            <div class="grid-cell" data-cell="3">
+                <div class="widget" id="lightWidget" draggable="true">
+                    <h2>Luminosité</h2>
+                    <p id="luminosite">-- lux</p>
+                </div>
+            </div>
+            <div class="grid-cell" data-cell="4">
+                <div class="widget" id="temperatureChartWidget" draggable="true">
+                    <canvas id="temperatureChart"></canvas>
+                </div>
+            </div>
+            <div class="grid-cell" data-cell="5">
+                <div class="widget" id="humidityChartWidget" draggable="true">
+                    <canvas id="humidityChart"></canvas>
+                </div>
+            </div>
+            <div class="grid-cell" data-cell="6">
+                <div class="widget" id="lightChartWidget" draggable="true">
+                    <canvas id="lightChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="thresholds">
+            <div class="threshold-item">
+                <h3>Seuil de Température</h3>
+                <input type="number" id="tempThreshold" placeholder="Seuil (°C)">
+                <button id="setTempThreshold">Définir</button>
+            </div>
+            <div class="threshold-item">
+                <h3>Seuil d'Humidité</h3>
+                <input type="number" id="humidityThreshold" placeholder="Seuil (%)">
+                <button id="setHumidityThreshold">Définir</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
